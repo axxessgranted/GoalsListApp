@@ -1,11 +1,13 @@
-import { View, Text, StyleSheet } from 'react-native';
+import { View, Text, StyleSheet, Pressable } from 'react-native';
 
-const GoalItem = ({ text }) => {
+const GoalItem = ({ id, text, deleteItemHandler }) => {
   return (
-    /* Extra View to support rounded corners for iOS */
-    <View style={styles.goalItem}>
-      <Text style={styles.goalText}>{text}</Text>
-    </View>
+    <Pressable onPress={deleteItemHandler.bind(this, id)}>
+      {/* Extra View to support rounded corners for iOS */}
+      <View style={styles.goalItem}>
+        <Text style={styles.goalText}>{text}</Text>
+      </View>
+    </Pressable>
   );
 };
 
